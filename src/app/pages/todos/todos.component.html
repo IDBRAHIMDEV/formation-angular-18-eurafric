@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h1 class="my-5">{{ title }}</h1>
+            <input type="text" placeholder="Todo..." class="form-control my-1">
+            <div class="d-grid my-1">
+                <button class="btn btn-primary">Add</button>
+            </div>
+            <ul class="list-group my-1">
+                @for (todo of todos){
+                    <li class="list-group-item"></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
