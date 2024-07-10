@@ -15,7 +15,10 @@ export class ListCoursesComponent {
 
   coursesService = inject(CoursesService)
 
+  list: boolean = true
+
     addable: boolean = false;
+    courses: Course[] = []
 
     myCourse: Course = {
       title: '',
@@ -25,6 +28,21 @@ export class ListCoursesComponent {
       active: false
     }
 
+    ngOnInit(): void {
+      this.getAll()
+    }
+
+    getAll() {
+      this.coursesService.all().subscribe({
+        next: (res) => {
+          this.courses = res
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+    }
+
     toggleForm() {
       this.addable = !this.addable
     }
@@ -32,7 +50,9 @@ export class ListCoursesComponent {
     persist() {
       this.coursesService.add(this.myCourse).subscribe({
         next: (res) => {
-          console.log(res)
+          
+          this.courses = [res, ...this.courses]
+
           this.initFormCourse()
         },
         error: (err) => {}
@@ -41,6 +61,7 @@ export class ListCoursesComponent {
     }
 
     initFormCourse() {
+      this.addable = false
       this.myCourse = {
         title: '',
         image: '',
@@ -48,5 +69,9 @@ export class ListCoursesComponent {
         body: '',
         active: false
       }
+    }
+
+    toogleDisplayOption(status: boolean) {
+      this.list = status
     }
 }
