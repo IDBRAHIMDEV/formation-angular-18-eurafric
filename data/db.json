@@ -1,36 +1,12 @@
 {
   "courses": [
     {
-      "title": "Learn React and Redux",
+      "title": "Learn Angular",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/ndgpEj1YRAqrlS0gNZBb",
-      "price": 34,
-      "body": "learn how to create a frontend application using a react and a redux",
+      "price": 23,
+      "body": "sfdfdfdf",
       "active": false,
       "id": 1
-    },
-    {
-      "title": "Learn Angular ",
-      "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/VXYNEvjqRvaVy7cvy0he",
-      "price": 45,
-      "body": "Learn angular version 18 and NGRX",
-      "active": false,
-      "id": 2
-    },
-    {
-      "title": "Learn Vue 3",
-      "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/E91FpFwIRW216LqpMIY6",
-      "price": 76,
-      "body": "vue 3 from scratch",
-      "active": false,
-      "id": 3
-    },
-    {
-      "title": "Learn Spring boot",
-      "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/otcfFBbQSsuFqhl5W2mF",
-      "price": 23,
-      "body": "learn spring boot from scratch",
-      "active": false,
-      "id": 4
     }
   ],
   "users": [

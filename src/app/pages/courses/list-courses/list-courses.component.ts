@@ -3,11 +3,13 @@ import { Component, inject } from '@angular/core';
 import { Course } from '../../../models/course';
 import { FormsModule } from '@angular/forms';
 import { CoursesService } from '../../../services/courses.service';
+import { DisplayListCourseComponent } from '../../../components/courses/display-list-course/display-list-course.component';
+import { DisplayGridCourseComponent } from '../../../components/courses/display-grid-course/display-grid-course.component';
 
 @Component({
   selector: 'app-list-courses',
   standalone: true,
-  imports: [NgClass, NgStyle, FormsModule, JsonPipe],
+  imports: [NgClass, NgStyle, FormsModule, JsonPipe, DisplayListCourseComponent, DisplayGridCourseComponent],
   templateUrl: './list-courses.component.html',
   styleUrl: './list-courses.component.css'
 })
@@ -73,5 +75,14 @@ export class ListCoursesComponent {
 
     toogleDisplayOption(status: boolean) {
       this.list = status
+    }
+
+
+    deleteCourseById(data: any) {
+      this.coursesService.destroy(data.id).subscribe({
+        next: res => {
+          this.courses = this.courses.filter(item => item.id !== data.id)
+        }
+      })
     }
 }

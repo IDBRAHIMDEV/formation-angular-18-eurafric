@@ -1,0 +1,22 @@
+<div class="row my-3">
+    <ul class="list-group">
+        @for(course of courses; track course.id) {
+            <li class="list-group-item">
+                <img class="my-3" width="150px" [src]="course.image" alt="" srcset="">
+                <h1>{{ course.title }}</h1>
+                <p>{{ course.body }}</p>
+                <div><span class="badge text-bg-success my-3">{{ course.price }} DH</span></div>
+                <div class="text-end">
+                    <button class="btn mx-1 btn-lg btn-warning">
+                        <i class="fa fa-pencil"></i>
+                    </button>
+                    @if(course.id) {
+                        <button (click)="requestDeleteCourse(course.id)" class="btn mx-1 btn-lg btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    }
+                </div>
+            </li>
+        }
+    </ul>
+</div>

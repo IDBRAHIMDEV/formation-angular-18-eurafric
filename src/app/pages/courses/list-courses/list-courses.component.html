@@ -54,50 +54,10 @@
 
 @if(list) {
 
-    <div class="row my-3">
-        <ul class="list-group">
-            @for(course of courses; track course.id) {
-                <li class="list-group-item">
-                    <img class="my-3" width="150px" [src]="course.image" alt="" srcset="">
-                    <h1>{{ course.title }}</h1>
-                    <p>{{ course.body }}</p>
-                    <div><span class="badge text-bg-success my-3">{{ course.price }} DH</span></div>
-                    <div class="text-end">
-                        <button class="btn mx-1 btn-lg btn-warning">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                        <button class="btn mx-1 btn-lg btn-danger">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </div>
-                </li>
-            }
-        </ul>
-    </div>
+    <app-display-list-course [courses]="courses" (delete)="deleteCourseById($event)"></app-display-list-course>
+   
 }
 @else {
 
-    <div class="row my-3">
-        @for(course of courses; track course.id) {
-         <div class="col-md-4">
-            <div class="card">
-                <img class="card-img-top" [src]="course.image" [alt]="course.title" />
-                <div class="card-body">
-                    <h4 class="card-title">{{ course.title }}</h4>
-                    <p class="card-text">{{ course.body }}</p>
-                    <p><span class="badge text-bg-success">{{ course.price }}</span></p>
-                    <div class="text-center">
-                        <button class="btn btn-warning btn-sm mx-2">
-                            <i class="fa fa-pencil"></i>
-                        </button>
-                        <button class="btn btn-danger btn-sm mx-2">
-                            <i class="fa fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-         </div>
-        }
-    </div>
+    <app-display-grid-course [courses]="courses"></app-display-grid-course>
 }
