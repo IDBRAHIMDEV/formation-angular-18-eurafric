@@ -1,5 +1,14 @@
 {
-  "courses": [],
+  "courses": [
+    {
+      "title": "Learn React and Redux",
+      "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/ndgpEj1YRAqrlS0gNZBb",
+      "price": 34,
+      "body": "learn how to create a frontend application using a react and a redux",
+      "active": false,
+      "id": 1
+    }
+  ],
   "users": [
     {
       "name": "Abdellah",
