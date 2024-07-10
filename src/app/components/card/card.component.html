@@ -1,8 +1,11 @@
-<div class="card my-2">
-    <img class="card-img-top" src="https://picsum.photos/200/300?random=1" alt="Title" />
+<div class="card my-3">
+    <img class="card-img-top" [src]="avatar" [alt]="login" />
     <div class="card-body">
-        <h4 class="card-title">Title</h4>
-        <p class="card-text">Text</p>
+        <h4 class="card-title">{{ login }}</h4>
+        <div class="card-text">
+            <div class="d-grid">
+                <button class="btn btn-sm btn-success">Read More</button>
+            </div>
+        </div>
     </div>
 </div>
-

@@ -1,3 +1,4 @@
+import { UsersComponent } from './pages/users/users.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { ComptabiliteComponent } from './pages/comptabilite/comptabilite.component';
 
@@ -8,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ComptabiliteComponent, TodosComponent],
+  imports: [RouterOutlet, ComptabiliteComponent, TodosComponent, UsersComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
