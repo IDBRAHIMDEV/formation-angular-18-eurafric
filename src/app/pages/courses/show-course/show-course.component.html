@@ -1,1 +1,21 @@
-<p>show-course works!</p>
+
+<div class="row my-5">
+    <div class="col-md-12 text-end">
+        <a routerLink="/store/elearning/list" class="btn btn btn-sm btn-info">Back to list</a>
+    </div>
+</div>
+<div class="row my-5">
+    <div class="col-md-12">
+        <div class="card">
+            <img class="card-img-top" [src]="myCourse.image" [alt]="myCourse.title" />
+            <div class="card-body">
+                <h4 class="card-title">{{ myCourse.title }}</h4>
+                <p class="card-text">{{ myCourse.body }}</p>
+                <p>
+                    <span class="badge text-bg-success">{{ myCourse.price }}</span>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>

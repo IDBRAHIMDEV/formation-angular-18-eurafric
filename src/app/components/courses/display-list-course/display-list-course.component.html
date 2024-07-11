@@ -2,8 +2,13 @@
     <ul class="list-group">
         @for(course of courses; track course.id) {
             <li class="list-group-item">
-                <img class="my-3" width="150px" [src]="course.image" alt="" srcset="">
-                <h1>{{ course.title }}</h1>
+                
+                <a [routerLink]="['/store/elearning', course.id]">
+                    <img class="my-3" width="150px" [src]="course.image" alt="" srcset="">
+                </a>
+                <a [routerLink]="['/store/elearning', course.id]">
+                    <h1>{{ course.title }}</h1>
+                </a>
                 <p>{{ course.body }}</p>
                 <div><span class="badge text-bg-success my-3">{{ course.price }} DH</span></div>
                 <div class="text-end">
