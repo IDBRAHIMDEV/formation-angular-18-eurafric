@@ -7,6 +7,7 @@
                 <p>{{ course.body }}</p>
                 <div><span class="badge text-bg-success my-3">{{ course.price }} DH</span></div>
                 <div class="text-end">
+                    <a [routerLink]="['/store/elearning/edit', course.id]" class="btn btn-info btn-lg mx-1"><i class="fa fa-refresh"></i></a>
                     <button (click)="requestEditCourse(course)" class="btn mx-1 btn-lg btn-warning">
                         <i class="fa fa-pencil"></i>
                     </button>

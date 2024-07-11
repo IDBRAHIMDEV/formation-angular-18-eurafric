@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from '../../../models/course';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-display-grid-course',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './display-grid-course.component.html',
   styleUrl: './display-grid-course.component.css'
 })

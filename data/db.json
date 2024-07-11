@@ -1,15 +1,15 @@
 {
   "courses": [
     {
-      "title": "Learn Angular 18.1",
+      "title": "Learn Angular 18.0.1",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/ndgpEj1YRAqrlS0gNZBb",
-      "price": 24,
-      "body": "Learn angular from scratch",
+      "price": 29,
+      "body": "Learn angular from scratch 2",
       "active": false,
       "id": 1
     },
     {
-      "title": "Bright Coding",
+      "title": "Vue 3",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/VXYNEvjqRvaVy7cvy0he",
       "price": 27,
       "body": "Learn web develoment",

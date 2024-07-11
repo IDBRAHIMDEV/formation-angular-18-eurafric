@@ -8,6 +8,7 @@
                 <p class="card-text">{{ course.body }}</p>
                 <p><span class="badge text-bg-success">{{ course.price }}</span></p>
                 <div class="text-center">
+                    <a [routerLink]="['/store/elearning/edit', course.id]" class="btn btn-info btn-sm mx-1"><i class="fa fa-refresh"></i></a>
                     <button (click)="requestEditCourse(course)" class="btn btn-warning btn-sm mx-2">
                         <i class="fa fa-pencil"></i>
                     </button>
