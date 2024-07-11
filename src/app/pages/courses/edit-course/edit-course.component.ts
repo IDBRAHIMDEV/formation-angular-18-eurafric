@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-course',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
   templateUrl: './edit-course.component.html',
   styleUrl: './edit-course.component.css'
 })
-export class EditCourseComponent {
+export class EditCourseComponent  {
+  route = inject(ActivatedRoute)
 
+  ngOnInit(): void {
+    this.route.params.subscribe({
+      next: params => {
+        console.log(params)
+      },
+      error: err => console.log(err)
+    })
+  }
 }

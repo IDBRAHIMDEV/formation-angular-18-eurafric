@@ -7,6 +7,14 @@
       "body": "Learn angular from scratch",
       "active": false,
       "id": 1
+    },
+    {
+      "title": "Bright Coding",
+      "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/VXYNEvjqRvaVy7cvy0he",
+      "price": 27,
+      "body": "Learn web develoment",
+      "active": false,
+      "id": 2
     }
   ],
   "users": [
