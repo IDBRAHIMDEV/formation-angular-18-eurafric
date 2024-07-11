@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Course } from '../../../models/course';
 
 @Component({
@@ -10,4 +10,15 @@ import { Course } from '../../../models/course';
 })
 export class DisplayGridCourseComponent {
   @Input({required: true}) courses: Course[] = []
+  @Output() delete = new EventEmitter()
+  @Output() edit = new EventEmitter()
+
+  requestDeleteCourse(id: number) {
+    console.log('request from child')
+    this.delete.emit({id: id, message: 'Daddy i want delete this course please!'})
+  }
+
+  requestEditCourse(course: Course) {
+    this.edit.emit(course)
+  }
 }

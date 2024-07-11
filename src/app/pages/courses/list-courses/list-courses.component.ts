@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CoursesService } from '../../../services/courses.service';
 import { DisplayListCourseComponent } from '../../../components/courses/display-list-course/display-list-course.component';
 import { DisplayGridCourseComponent } from '../../../components/courses/display-grid-course/display-grid-course.component';
+import { omit } from 'lodash';
 
 @Component({
   selector: 'app-list-courses',
@@ -20,6 +21,7 @@ export class ListCoursesComponent {
   list: boolean = true
 
     addable: boolean = false;
+    editable: boolean = false
     courses: Course[] = []
 
     myCourse: Course = {
@@ -47,6 +49,7 @@ export class ListCoursesComponent {
 
     toggleForm() {
       this.addable = !this.addable
+      this.clearForm()
     }
 
     persist() {
@@ -64,6 +67,11 @@ export class ListCoursesComponent {
 
     initFormCourse() {
       this.addable = false
+      this.clearForm()
+    }
+
+    clearForm() {
+      this.editable = false
       this.myCourse = {
         title: '',
         image: '',
@@ -84,5 +92,26 @@ export class ListCoursesComponent {
           this.courses = this.courses.filter(item => item.id !== data.id)
         }
       })
+    }
+
+    editCourseById(course: Course) {
+      this.myCourse = course
+      this.addable = true
+      this.editable = true
+    }
+
+    updateCourse() {
+      
+      if(this.myCourse.id) {
+        this.coursesService.modify(omit(this.myCourse, ['id']), this.myCourse.id).subscribe({
+          next: res => {
+            this.getAll()
+            this.initFormCourse()
+          },
+          error: err => {
+            console.log(err)
+          }
+        })
+      }
     }
 }

@@ -40,7 +40,14 @@
                 <textarea [(ngModel)]="myCourse.body" placeholder="content of a course" rows="4" class="form-control" id="body"></textarea>
             </div>
             <div class="d-grid my-2">
-                <button class="btn btn-info" (click)="persist()">Submit</button>
+                @if(editable) {
+
+                    <button class="btn btn-warning" (click)="updateCourse()">Update</button>
+                }
+                @else {
+                    
+                    <button class="btn btn-info" (click)="persist()">Submit</button>
+                }
             </div>
         </div>
     </div>
@@ -54,10 +61,10 @@
 
 @if(list) {
 
-    <app-display-list-course [courses]="courses" (delete)="deleteCourseById($event)"></app-display-list-course>
+    <app-display-list-course [courses]="courses" (edit)="editCourseById($event)" (delete)="deleteCourseById($event)"></app-display-list-course>
    
 }
 @else {
 
-    <app-display-grid-course [courses]="courses"></app-display-grid-course>
+    <app-display-grid-course [courses]="courses" (edit)="editCourseById($event)" (delete)="deleteCourseById($event)"></app-display-grid-course>
 }
