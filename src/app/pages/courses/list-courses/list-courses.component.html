@@ -3,6 +3,9 @@
         <h1>List of courses</h1>
     </div>
     <div class="col-md-6 text-end">
+        
+        <a routerLink="/elearning/create" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></a>
+
         <button (click)="toggleForm()" class="btn btn-sm btn-primary">
             <i class="fa" [ngClass]="{
                 'fa-arrow-up': addable,

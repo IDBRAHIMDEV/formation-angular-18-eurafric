@@ -6,11 +6,12 @@ import { CoursesService } from '../../../services/courses.service';
 import { DisplayListCourseComponent } from '../../../components/courses/display-list-course/display-list-course.component';
 import { DisplayGridCourseComponent } from '../../../components/courses/display-grid-course/display-grid-course.component';
 import { omit } from 'lodash';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-list-courses',
   standalone: true,
-  imports: [NgClass, NgStyle, FormsModule, JsonPipe, DisplayListCourseComponent, DisplayGridCourseComponent],
+  imports: [NgClass, NgStyle, FormsModule, JsonPipe, DisplayListCourseComponent, DisplayGridCourseComponent, RouterLink],
   templateUrl: './list-courses.component.html',
   styleUrl: './list-courses.component.css'
 })

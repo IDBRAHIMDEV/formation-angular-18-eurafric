@@ -5,6 +5,10 @@ import { ComptabiliteComponent } from './pages/comptabilite/comptabilite.compone
 import { UsersComponent } from './pages/users/users.component';
 import { ListCoursesComponent } from './pages/courses/list-courses/list-courses.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AddCourseComponent } from './pages/courses/add-course/add-course.component';
+import { EditCourseComponent } from './pages/courses/edit-course/edit-course.component';
+import { ShowCourseComponent } from './pages/courses/show-course/show-course.component';
+import { MainCoursesComponent } from './pages/courses/main-courses/main-courses.component';
 
 export const routes: Routes = [
     {
@@ -25,7 +29,25 @@ export const routes: Routes = [
     },
     {
         path: 'elearning',
-        component: ListCoursesComponent
+        component: MainCoursesComponent,
+        children: [
+            {
+                path: 'list',
+                component: ListCoursesComponent
+            },
+            {
+                path: 'create',
+                component: AddCourseComponent
+            },
+            {
+                path: 'edit/:id',
+                component: EditCourseComponent
+            },
+            {
+                path: ':id',
+                component: ShowCourseComponent
+            }
+        ]
     },
     {
         path: '**',
