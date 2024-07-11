@@ -1,7 +1,7 @@
 import { Course } from './../../../models/course';
 import { Component, inject } from '@angular/core';
 import { CoursesService } from '../../../services/courses.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,8 +15,6 @@ export class AddCourseComponent {
   coursesService = inject(CoursesService)
   router = inject(Router)
 
-    courses: Course[] = []
-
     myCourse: Course = {
       title: '',
       image: '',
@@ -25,8 +23,8 @@ export class AddCourseComponent {
       active: false
     }
 
-    persist() {
-      this.coursesService.add(this.myCourse).subscribe({
+    persist(data: Course) {
+      this.coursesService.add(data).subscribe({
         next: (res) => {
           
           this.router.navigateByUrl('/store/elearning/list')
@@ -35,4 +33,16 @@ export class AddCourseComponent {
       })
     
     }
+
+    info(title: any) {
+      console.log(title)
+    }
+
+    submit(courseForm: NgForm) {
+      if(courseForm.invalid) {
+        return
+      }
+
+      this.persist(courseForm.value)
+    } 
 }

@@ -2,21 +2,33 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CoursesService } from '../../../services/courses.service';
 import { Course } from '../../../models/course';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { omit } from 'lodash';
 
 @Component({
   selector: 'app-edit-course',
   standalone: true,
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './edit-course.component.html',
   styleUrl: './edit-course.component.css'
 })
 export class EditCourseComponent  {
   route = inject(ActivatedRoute)
-
   coursesService = inject(CoursesService)
   router = inject(Router)
+
+  currentId: number = 0
+
+  courseForm!: FormGroup
+
+  constructor() {
+    this.courseForm = new FormGroup({
+      title: new FormControl('my title', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]),
+      image: new FormControl('', [Validators.required]),
+      price: new FormControl(0),
+      body: new FormControl('')
+    }, {updateOn: 'blur'})
+  }
 
     myCourse: Course = {
       title: '',
@@ -29,11 +41,12 @@ export class EditCourseComponent  {
   ngOnInit(): void {
     this.route.params.subscribe({
       next: ({id}) => {
-        console.log(id)
+        
+        this.currentId = id
 
         this.coursesService.one(id).subscribe({
           next: res => {
-            this.myCourse = res
+            this.courseForm.patchValue(res)
           }
         })
 
@@ -43,9 +56,17 @@ export class EditCourseComponent  {
   }
 
   update() {
-      
-    if(this.myCourse.id) {
-      this.coursesService.modify(omit(this.myCourse, ['id']), this.myCourse.id).subscribe({
+    
+    if(this.courseForm.invalid) {
+      console.log('invalid')
+      return;
+    }
+
+    console.log('valid')
+
+
+    if(this.currentId) {
+      this.coursesService.modify(this.courseForm.value, this.currentId).subscribe({
         next: res => {
           this.router.navigate(['/store/elearning', 'list'])
         },
@@ -54,5 +75,13 @@ export class EditCourseComponent  {
         }
       })
     }
+  }
+
+  get title() {
+    return this.courseForm.get('title')
+  }
+
+  get image() {
+    return this.courseForm.get('image')
   }
 }

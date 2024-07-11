@@ -1,11 +1,10 @@
 {
   "courses": [
     {
-      "title": "Learn Angular 18.0.1",
+      "title": "Learn ng",
       "image": "https://process.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/resize=width:705/https://cdn.filestackcontent.com/ndgpEj1YRAqrlS0gNZBb",
-      "price": 29,
-      "body": "Learn angular from scratch 2",
-      "active": false,
+      "price": 30,
+      "body": "Learn angular from scratch 18",
       "id": 1
     },
     {
@@ -15,6 +14,13 @@
       "body": "Learn web develoment",
       "active": false,
       "id": 2
+    },
+    {
+      "title": "fvfg@dff",
+      "image": "dff",
+      "price": 12,
+      "body": "dfdf",
+      "id": 3
     }
   ],
   "users": [

@@ -1,26 +1,58 @@
 <div class="row my-5">
     <div class="col-md-6 mx-auto">
 
-       
-        <div class="form-group my-2">
-            <label for="title">Title</label>
-            <input [(ngModel)]="myCourse.title" class="form-control" placeholder="Tape the Title" type="text" name="" id="title">
-        </div>
-
-        <div class="form-group my-2">
-            <label for="image">Image</label>
-            <input [(ngModel)]="myCourse.image" placeholder="Url for a course" type="url" name="" id="image" class="form-control">
-        </div>
-        <div class="form-group my-2">
-            <label for="price">Price</label>
-            <input [(ngModel)]="myCourse.price" placeholder="tape Price" type="number" name="" id="price" class="form-control">
-        </div>
-        <div class="form-group my-2">
-            <label for="body">Body</label>
-            <textarea [(ngModel)]="myCourse.body" placeholder="content of a course" rows="4" class="form-control" id="body"></textarea>
-        </div>
-        <div class="d-grid my-2">
-                <button class="btn btn-warning" (click)="update()">Update <i class="fa fa-refresh"></i></button>
-        </div>
+       <form [formGroup]="courseForm" (ngSubmit)="update()">
+           <div class="form-group my-2">
+               <label for="title">Title</label>
+               <input formControlName="title" class="form-control" placeholder="Tape the Title" type="text" name="" id="title">
+               @if(title?.invalid && (title?.touched || title?.dirty)) {
+                <div class="alert alert-danger">
+ 
+                    @if(title?.errors?.['required']) {
+                        <div>Title is required !</div>
+                    }
+    
+                    @if(title?.errors?.['maxlength']) {
+                        <div>Title should be less than 10 caracters!</div>
+                    }
+    
+                    @if(title?.errors?.['minlength']) {
+                        <div>Title should be great than {{ title?.errors?.['minlength']?.['actualLength'] }} / {{ title?.errors?.['minlength']?.['requiredLength'] }} caracters!</div>
+                    }
+    
+                    @if(title?.errors?.['email']) {
+                        <div>email invalid !</div>
+                    }
+                </div> 
+             }
+           </div>
+   
+           <div class="form-group my-2">
+               <label for="image">Image</label>
+               <input formControlName="image" placeholder="Url for a course" type="url" name="" id="image" class="form-control">
+               @if(image?.invalid && (image?.touched || image?.dirty)) {
+                <div class="alert alert-danger">
+ 
+                    @if(image?.errors?.['required']) {
+                        <div>Image is required !</div>
+                    }
+    
+                   
+                  
+                </div> 
+             }
+           </div>
+           <div class="form-group my-2">
+               <label for="price">Price</label>
+               <input formControlName="price" placeholder="tape Price" type="number" name="" id="price" class="form-control">
+           </div>
+           <div class="form-group my-2">
+               <label for="body">Body</label>
+               <textarea formControlName="body" placeholder="content of a course" rows="4" class="form-control" id="body"></textarea>
+           </div>
+           <div class="d-grid my-2">
+                   <button class="btn btn-warning">Update <i class="fa fa-refresh"></i></button>
+           </div>
+       </form>
     </div>
 </div>
