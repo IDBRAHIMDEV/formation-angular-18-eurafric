@@ -5,6 +5,7 @@ import { TodosComponent } from './pages/todos/todos.component';
 import { ComptabiliteComponent } from './pages/comptabilite/comptabilite.component';
 import { UsersComponent } from './pages/users/users.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { LoginComponent } from './pages/users/login/login.component';
 
 export const routes: Routes = [
     {
@@ -22,6 +23,10 @@ export const routes: Routes = [
     {
         path: 'counter',
         component: CounterComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: 'users',
