@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { ADD_USER, DELETE_USER, LOAD_ALL_USERS, LOAD_ONE_USER, LOGIN, LOGIN_FAILURE, LOGIN_SUCCESS, LOGOUT, UPDATE_USER } from "./users.types";
-import { LoginResponse } from "./users.models";
+import { Credential, LoginResponse } from "./users.models";
 
 export const loadAllUsers = createAction(LOAD_ALL_USERS)
 export const loadOneUser = createAction(LOAD_ONE_USER)

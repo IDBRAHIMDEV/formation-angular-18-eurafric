@@ -4,14 +4,14 @@
 
         <div class="form-group my-3">
             <label for="">Username</label>
-            <input type="text" name="" id="username" class="form-control">
+            <input [(ngModel)]="login" type="text" name="" id="username" class="form-control">
         </div>
         <div class="form-group my-3">
             <label for="">Password</label>
-            <input type="password" name="" id="password" class="form-control">
+            <input [(ngModel)]="password" type="password" name="" id="password" class="form-control">
         </div>
         <div class="d-grid my-2">
-            <button class="btn btn-primary">Login</button>
+            <button (click)="loginWithUsernameAndPass()" class="btn btn-primary">Login</button>
         </div>
     </div>
 </div>

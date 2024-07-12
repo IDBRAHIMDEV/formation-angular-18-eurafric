@@ -1,3 +1,4 @@
+import { Credential } from './users.models';
 import { act, Actions, createEffect, ofType } from '@ngrx/effects';
 import { UserService } from './../../services/user.service';
 import { inject } from '@angular/core';
@@ -14,8 +15,9 @@ export class UserEffect {
      loginEffect = createEffect(() =>
         this.actions.pipe(
           ofType(LOGIN),
-          exhaustMap((action) => {
-            return this.userService.signIn(action.username, action.password).pipe(
+          exhaustMap(({credential: {username, password}}) => {
+            
+            return this.userService.signIn(username, password).pipe(
               map((data) => {
                 return loginSuccess({ response: data });
               }),
