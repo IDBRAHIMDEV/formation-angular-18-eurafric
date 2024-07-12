@@ -5,7 +5,8 @@ import { slices } from './store/app.store';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideState, provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideHttpClient(), provideRouter(routes), provideStore(), provideState(slices.counterSlice)]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideHttpClient(), provideRouter(routes), provideStore(), provideState(slices.counterSlice), provideEffects()]
 };

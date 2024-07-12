@@ -1,13 +1,23 @@
-import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { getCount } from '../../store/counter/counter.selectors';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
-@Component({
+@Component({ 
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, AsyncPipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
 
+  count$!: Observable<number>
+  store = inject(Store)
+
+  ngOnInit(): void {
+    this.count$ = this.store.select(getCount)
+  }
 }
