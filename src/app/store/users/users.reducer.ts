@@ -13,6 +13,7 @@ export const userReducer = createReducer(initUserState, on(login, (state, action
 }), on(loginSuccess, (state, action) => {
 
     setToken(action.response.token)
+    
 
     return {
         ...state,

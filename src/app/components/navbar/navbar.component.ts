@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { getCount } from '../../store/counter/counter.selectors';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { getAppToken } from '../../store/users/users.selectors';
 
 @Component({ 
   selector: 'app-navbar',
@@ -15,9 +16,15 @@ import { AsyncPipe } from '@angular/common';
 export class NavbarComponent {
 
   count$!: Observable<number>
+  isAuth: boolean = false
   store = inject(Store)
 
   ngOnInit(): void {
     this.count$ = this.store.select(getCount)
+    this.store.select(getAppToken).subscribe({
+      next: res => {
+        this.isAuth = !!res
+      }
+    })
   }
 }

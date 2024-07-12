@@ -32,9 +32,16 @@
             <a class="nav-link" routerLinkActive="active" routerLink="/users">{{ count$ | async }}</a>
           </li>
 
+          @if(!isAuth) {
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" routerLink="/login">Login</a>
           </li>
+          }
+          @else {
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active">Logout</a>
+            </li>
+          }
          
         </ul>
         

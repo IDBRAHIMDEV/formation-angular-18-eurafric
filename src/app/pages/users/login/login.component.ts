@@ -3,6 +3,8 @@ import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { login } from '../../../store/users/users.actions';
 import { FormsModule } from '@angular/forms';
+import { getAppToken } from '../../../store/users/users.selectors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +20,7 @@ export class LoginComponent {
 
  
   store = inject(Store)
+  router = inject(Router)
 
   loginWithUsernameAndPass() {
 
@@ -28,5 +31,12 @@ export class LoginComponent {
 
     console.log('credential', credential)
     this.store.dispatch(login({credential}))
+
+    this.store.select(getAppToken).subscribe({
+      next: (res) => {
+        console.log(res)
+        this.router.navigate(['store/elearning/list'])
+      }
+    })
   }
 }
