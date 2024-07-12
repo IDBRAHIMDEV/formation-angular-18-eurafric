@@ -1,3 +1,4 @@
+import { CounterComponent } from './pages/counter/counter.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { TodosComponent } from './pages/todos/todos.component';
@@ -17,6 +18,10 @@ export const routes: Routes = [
     {
         path: 'comptabilite',
         component: ComptabiliteComponent
+    },
+    {
+        path: 'counter',
+        component: CounterComponent
     },
     {
         path: 'users',

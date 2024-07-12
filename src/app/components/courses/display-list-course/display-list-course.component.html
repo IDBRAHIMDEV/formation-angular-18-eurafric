@@ -1,3 +1,5 @@
+
+{{ currentDate | date:'short' }}
 <div class="row my-3">
     <ul class="list-group">
         @for(course of courses; track course.id) {
@@ -9,8 +11,8 @@
                 <a [routerLink]="['/store/elearning', course.id]">
                     <h1>{{ course.title }}</h1>
                 </a>
-                <p>{{ course.body  | titlecase }}</p>
-                <div><span class="badge text-bg-success my-3">{{ course.price | currency: 'JPY' }}</span></div>
+                <p>{{ course.body  | titlecase | resume:20 }}</p>
+                <div><span class="badge text-bg-success my-3">{{ course.price | currency:'MAD':'symbol':'1.3-3' }}</span></div>
                 <div class="text-end">
                     <a [routerLink]="['/store/elearning/edit', course.id]" class="btn btn-info btn-lg mx-1"><i class="fa fa-refresh"></i></a>
                     <button (click)="requestEditCourse(course)" class="btn mx-1 btn-lg btn-warning">
